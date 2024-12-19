@@ -1,7 +1,7 @@
 name: Build
 
 on:
-  workflow_call:
+  workflow_call: # 用于被其他工作流调用
     inputs:
       upload-artifact:
         type: boolean
@@ -12,6 +12,8 @@ on:
       channel:
         type: string
         default: "dev"
+  workflow_dispatch: # 用于支持手动触发
+
 
 env:
   IS_GITHUB_ACTIONS: 1
