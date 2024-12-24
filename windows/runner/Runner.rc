@@ -93,7 +93,7 @@ BEGIN
             VALUE "FileDescription", "新狮云" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "新狮云" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2023 Hiddify.com. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2023 新狮云.com. All rights reserved." "\0"
             VALUE "OriginalFilename", "新狮云.exe" "\0"
             VALUE "ProductName", "新狮云" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
