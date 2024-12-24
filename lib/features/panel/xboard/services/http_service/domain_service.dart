@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 class DomainService {
   static const String ossDomain =
-      'https://hiddify-config.randomcg.top/config.json';
+      'https://f004.backblazeb2.com/file/cloudlion/config.json';
 
 // 从返回的 JSON 中挑选一个可以正常访问的域名
   static Future<String> fetchValidDomain() async {
