@@ -1,7 +1,7 @@
 [Setup]
 AppId={{APP_ID}}
 AppVersion={{APP_VERSION}}
-AppName={{display_name}}
+AppName={{DISPLAY_NAME}}
 AppPublisher={{PUBLISHER_NAME}}
 AppPublisherURL={{PUBLISHER_URL}}
 AppSupportURL={{PUBLISHER_URL}}
@@ -9,7 +9,7 @@ AppUpdatesURL={{PUBLISHER_URL}}
 DefaultDirName={{INSTALL_DIR_NAME}}
 DisableProgramGroupPage=yes
 OutputDir=.
-OutputBaseFilename={{output_base_file_name}}
+OutputBaseFilename={{OUTPUT_BASE_FILENAME}}
 Compression=lzma
 SolidCompression=yes
 SetupIconFile={{SETUP_ICON_FILE}}
