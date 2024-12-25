@@ -15,5 +15,4 @@ locales:
   - pt
   - tr
   - zh
-default_locale: zh
 script_template: inno_setup.sas
