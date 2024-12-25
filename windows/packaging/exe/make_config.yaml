@@ -14,5 +14,5 @@ locales:
   - ru
   - pt
   - tr
-  - zh
+  - zh-CN
 script_template: inno_setup.sas
