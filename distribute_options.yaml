@@ -6,6 +6,8 @@ releases:
         package:
           platform: windows
           target: exe
+          build_args:
+            languages: en-us,zh-cn,zh-tw
 
       - name: release-android-apk
         package:
