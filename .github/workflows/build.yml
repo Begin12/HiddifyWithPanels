@@ -245,11 +245,24 @@ jobs:
       - name: Build iOS (No Code Sign)
         run: |
           flutter build ipa --no-codesign
-  
+
+      - name: Check build directory
+        run: |
+          echo "Checking iOS build directory content:"
+          ls -R build/ios/
+          
       - name: Copy to out iOS
         run: |
-          mkdir out
-          mv build/ios/ipa/*.ipa out/${TARGET_NAME_ipa}.ipa
+          mkdir -p out
+          if [ -d "build/ios/ipa" ]; then
+            echo "Found ipa directory"
+            cp build/ios/ipa/*.ipa out/${TARGET_NAME_ipa}.ipa || echo "No ipa file in build/ios/ipa/"
+          fi
+          if [ ! -f "out/${TARGET_NAME_ipa}.ipa" ]; then
+            echo "Searching for ipa file in build directory..."
+            find build/ios -name "*.ipa" -exec cp {} out/${TARGET_NAME_ipa}.ipa \;
+          fi
+          ls -l out/ || echo "out directory is empty"
   
       - name: Upload iOS Artifact
         if: env.UPLOAD_ARTIFACT == 'true'
