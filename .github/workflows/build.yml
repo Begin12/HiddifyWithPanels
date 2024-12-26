@@ -249,33 +249,15 @@ jobs:
       - name: Generate IPA from xcarchive
         run: |
           cd build/ios/archive
-          cat > ExportOptions.plist << EOL
-          <?xml version="1.0" encoding="UTF-8"?>
-          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-          <plist version="1.0">
-          <dict>
-              <key>method</key>
-              <string>development</string>
-              <key>compileBitcode</key>
-              <false/>
-              <key>signingStyle</key>
-              <string>automatic</string>
-          </dict>
-          </plist>
-          EOL
-          
-          xcodebuild -exportArchive \
-            -archivePath Runner.xcarchive \
-            -exportPath ../ipa \
-            -exportOptionsPlist ExportOptions.plist \
-            -allowProvisioningUpdates || \
-          echo "Export failed, trying alternative method..." && \
+          echo "Creating IPA manually..."
           cd .. && \
-          mkdir -p ipa && \
-          cp -r archive/Runner.xcarchive/Products/Applications/*.app ipa/ && \
+          rm -rf ipa && \
+          mkdir -p ipa/Payload && \
+          cp -r archive/Runner.xcarchive/Products/Applications/*.app ipa/Payload/ && \
           cd ipa && \
-          zip -r ${TARGET_NAME_ipa}.ipa Payload/
-
+          zip -r ${TARGET_NAME_ipa}.ipa Payload && \
+          echo "Manual IPA creation completed"
+          
       - name: Check build directory
         run: |
           echo "Checking iOS build directory content:"
